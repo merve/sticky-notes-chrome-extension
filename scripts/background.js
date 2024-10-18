@@ -36,17 +36,25 @@ chrome.contextMenus.onClicked.addListener(function (info, tab) {
         const buttonGroup = document.createElement("div");
         buttonGroup.className = "st-button-group";
 
+        const buttonDashboard = document.createElement("div");
+        buttonDashboard.id = "st-button-dashboard";
+
         const buttonSave = document.createElement("div");
         buttonSave.id = "st-button-save";
 
         const buttonDelete = document.createElement("div");
         buttonDelete.id = "st-button-delete";
 
+        buttonGroup.appendChild(buttonDashboard);
         buttonGroup.appendChild(buttonDelete);
         buttonGroup.appendChild(buttonSave);
         container.appendChild(buttonGroup);
         container.appendChild(textarea);
         document.body.appendChild(container);
+
+        buttonDashboard.addEventListener("click", function () {
+          chrome.runtime.sendMessage({ action: "openDashboard" });
+        });
 
         buttonSave.addEventListener("click", function () {
           const containerInfo = {
@@ -113,5 +121,11 @@ chrome.contextMenus.onClicked.addListener(function (info, tab) {
         });
       },
     });
+  }
+});
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "openDashboard") {
+    chrome.tabs.create({ url: chrome.runtime.getURL("dashboard.html") });
   }
 });

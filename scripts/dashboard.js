@@ -63,53 +63,73 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
       const tempDiv = document.createElement("div");
-      console.log(groupedCardList);
       const row = groupedCardList
         .map(
           ({ domain, list }) => `
+    <div class="st-table-row domain-row" data-collapsed="false" style="cursor: pointer;">
+      <img id="st-icon-collapse_${domain}" 
+        src="assets/icons/arrow-down.svg" width="16" height="16" 
+        alt="Sticky Notes icon" class="st-icon collapse-icon" />
+      <div style="font-weight: 600">
+        <a href=${domain} target="_blank">${domain}</a>
+      </div>
+    </div>
+    <div class="note-list" style="display: block;">
+      ${list
+        .map(
+          (item) => `
         <div class="st-table-row">
-          <img src="assets/icons/arrow-down.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" />
-          <div style="font-weight: 600">
-            <a href=${domain} target="_blank">${domain}</a>
+          <div></div>
+          <div>
+            <a href="${item.url}" title="${item.url}" target="_blank">
+              ${item.url}
+            </a>
+          </div>
+          <div>
+            <p title="${item.selectedText}">${item.selectedText}</p>
+          </div>
+          <div>
+            <p title="${item.value}">${item.value}</p>
+          </div>
+          <div>${formatDate(item.id)}</div>
+          <div class="st-table-actions">
+            <img src="assets/icons/external-link.svg" width="20" height="20" alt="Sticky Notes icon" 
+              data-url="${item.url}" id="st-icon-link_${item.id}" />
+            <img src="assets/icons/eye.svg" width="20" height="20" alt="Sticky Notes icon" 
+              id="st-icon-popup_${item.id}" />
+            <img src="assets/icons/trash.svg" width="20" height="20" alt="Sticky Notes icon" 
+              id="st-icon-delete_${item.id}" />
           </div>
         </div>
-        ${list
-          .map(
-            (item) => `
-          <div class="st-table-row">
-           
-            <div></div>
-            <div>
-              <a href="${item.url}" title="${item.url}" target="_blank">
-                ${item.url}
-              </a>
-            </div>
-            <div>
-              <p title="${item.selectedText}">${item.selectedText}</p>
-            </div>
-            <div>
-              <p title="${item.value}">${item.value}</p>
-            </div>
-            <div>${formatDate(item.id)}</div>
-            <div class="st-table-actions">
-              <img src="assets/icons/external-link.svg" width="20" height="20" alt="Sticky Notes icon" class="st-icon" 
-                data-url="${item.url}" id="st-icon-link_${item.id}" 
-                data-offset-top="${item.element.offsetTop}" />
-              <img src="assets/icons/eye.svg" width="20" height="20" alt="Sticky Notes icon" class="st-icon" id="st-icon-popup_${
-                item.id
-              }" />
-              <img src="assets/icons/trash.svg" width="20" height="20" alt="Sticky Notes icon" class="st-icon"
-                id="st-icon-delete_${item.id}" />
-            </div>
-          </div>
-        `
-          )
-          .join("")}
       `
+        )
+        .join("")}
+    </div>
+  `
         )
         .join("");
       tempDiv.innerHTML = row;
       notesContainer.appendChild(tempDiv);
+
+      // Add collapse functionality
+      const domainRows = document.querySelectorAll(".domain-row");
+
+      domainRows.forEach((row) => {
+        row.addEventListener("click", function () {
+          const noteList = this.nextElementSibling; // Get the next sibling (note-list)
+          const isCollapsed = this.getAttribute("data-collapsed") === "true";
+
+          // Toggle visibility
+          noteList.style.display = isCollapsed ? "block" : "none";
+          this.setAttribute("data-collapsed", !isCollapsed);
+
+          // Update the icon
+          const collapseIcon = this.querySelector(".collapse-icon");
+          collapseIcon.src = isCollapsed
+            ? "assets/icons/arrow-down.svg"
+            : "assets/icons/arrow-up.svg";
+        });
+      });
 
       document.addEventListener("click", function (event) {
         if (event.target.id.startsWith("st-icon-link")) {
@@ -164,26 +184,45 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-/* document
-  .getElementById("st-close-popup")
-  .addEventListener("click", function () {
+const closeButton = document.getElementById("st-close-popup");
+const popup = document.getElementById("st-note-detail");
+if (closeButton && popup) {
+  popup.addEventListener("click", function () {
     document.getElementById("st-note-detail").style.display = "none";
-  }); 
+  });
+}
 
 window.addEventListener("click", function (event) {
-  const popup = document.getElementById("st-note-detail");
   if (event.target === popup) {
     popup.style.display = "none";
   }
 });
 
-document
-  .getElementById("st-search-button")
-  .addEventListener("click", function () {
-    const searchText = document.getElementById("st-note").value.toLowerCase();
-    const selectedSite = document.getElementById("site").value;
-    searchNotes(searchText, selectedSite);
-  });*/
+const searchInput = document.getElementById("st-note");
+const searchButton = document.getElementById("st-search-button");
+const siteSelect = document.getElementById("site");
+
+function performSearch() {
+  const searchText = searchInput.value.toLowerCase();
+  const selectedSite = siteSelect.value;
+  searchNotes(searchText, selectedSite);
+}
+
+if (searchInput) {
+  searchInput.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      performSearch();
+    }
+  });
+}
+if (searchButton) {
+  searchButton.addEventListener("click", function () {
+    performSearch();
+  });
+}
+if (siteSelect) {
+  siteSelect.addEventListener("change", performSearch);
+}
 
 function searchNotes(searchText, selectedSite) {
   chrome.storage.local.get("cardList", function (result) {
