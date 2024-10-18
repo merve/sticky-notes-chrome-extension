@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sticky Notes | All Notes</title>
+  <link href="https://fonts.googleapis.com/css?family=Manrope:400,500,600,700" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/dashboard.css" />
+</head>
+
+<body>
+  <header class="st-header">
+    <div class="st-header-container">
+      <img src="assets/images/icon128.png" width="40" height="40" alt="Sticky Notes Logo" class="st-logo" />
+      <h1 class="st-header-title">Sticky Notes</h1>
+    </div>
+  </header>
+  <main>
+    <div class="st-search">
+      <div class="st-input-container">
+        <label for="st-note">Hangi Notu Arıyorsunuz?</label>
+        <div class="st-input-group">
+          <input class="st-input-with-icon" type="text" id="st-note" placeholder="Seçilen yazı, not" />
+          <img src="assets/icons/search.svg" width="20" height="20" alt="icon" class="st-search-icon" />
+        </div>
+      </div>
+      <div class="st-input-container" style="max-width: 330px">
+        <label for="site">Site</label>
+        <select name="site" id="site">
+        </select>
+      </div>
+      <button class="st-search-button" id="st-search-button">ARA</button>
+    </div>
+    <div class="st-table">
+      <div class="st-table-header">
+        <div></div>
+        <div class="st-table-item">
+          <img src="assets/icons/link.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" />Site
+        </div>
+        <div class="st-table-item">
+          <img src="assets/icons/selected.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" />Seçilen
+          yazı
+        </div>
+        <div class="st-table-item">
+          <img src="assets/icons/notes.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" />Notum
+        </div>
+        <div class="st-table-item">
+          <img src="assets/icons/calendar.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" />Tarih
+        </div>
+        <div class="st-table-item" style="justify-content: center">
+          <img src="assets/icons/action.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" />Aksiyon
+        </div>
+      </div>
+      <div id="notes"></div>
+    </div>
+  </main>
+  <!-- Popup container -->
+  <div id="st-note-detail" class="st-popup-container" style="display: none;">
+    <div class="st-popup-content">
+      <span class="st-close-button" id="st-close-popup">&times;</span>
+      <h2 id="st-popup-title">Not İçeriği</h2>
+      <p><strong>Site:</strong> <span id="st-popup-site"></span></p>
+      <p><strong>Seçilen metin:</strong> <span id="st-popup-content"></span></p>
+      <p><strong>Not:</strong> <span id="st-popup-note"></span></p>
+    </div>
+  </div>
+
+  <script src="scripts/dashboard.js"></script>
+</body>
+
+</html>

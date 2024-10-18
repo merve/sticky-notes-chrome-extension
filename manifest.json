@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Website Stickies",
+  "version": "1.0",
+  "permissions": ["contextMenus", "storage", "activeTab", "tabs", "scripting"],
+  "icons": {
+    "16": "assets/images/icon16.png",
+    "48": "assets/images/icon48.png",
+    "128": "assets/images/icon128.png"
+  },
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/images/icon16.png",
+      "48": "assets/images/icon48.png",
+      "128": "assets/images/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["scripts/content.js", "scripts/dashboard.js"],
+      "css": ["styles/main.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["note.html", "note.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "host_permissions": ["<all_urls>"]
+}

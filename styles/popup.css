@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #fcfcfc;
+  color: #212529;
+}
+.popup-container {
+  padding: 20px;
+  width: 440px;
+  line-height: 1.5;
+}
+
+button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  background-color: var(--color-primary);
+  font-weight: 600;
+}
+button:hover {
+  background-color: var(--color-primary-dark);
+  transition: all 0.4s;
+}
+.popup-button {
+  display: flex;
+  justify-content: center;
+}
+.popup-content {
+  text-align: center;
+}
