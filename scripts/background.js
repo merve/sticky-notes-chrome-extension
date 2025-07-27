@@ -36,6 +36,9 @@ chrome.contextMenus.onClicked.addListener(function (info, tab) {
         const buttonGroup = document.createElement("div");
         buttonGroup.className = "st-button-group";
 
+        const buttonMove = document.createElement("div");
+        buttonMove.id = "st-button-move";
+
         const buttonDashboard = document.createElement("div");
         buttonDashboard.id = "st-button-dashboard";
 
@@ -45,6 +48,7 @@ chrome.contextMenus.onClicked.addListener(function (info, tab) {
         const buttonDelete = document.createElement("div");
         buttonDelete.id = "st-button-delete";
 
+        buttonGroup.appendChild(buttonMove);
         buttonGroup.appendChild(buttonDashboard);
         buttonGroup.appendChild(buttonDelete);
         buttonGroup.appendChild(buttonSave);

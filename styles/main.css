@@ -29,6 +29,14 @@
   justify-content: flex-end;
   gap: 4px;
 }
+#st-button-move {
+  margin-right: auto;
+  cursor: move;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuNzUgNy43NUwyLjUgMTBNMi41IDEwTDQuNzUgMTIuMjVNMi41IDEwSDE3LjVNMTcuNSAxMEwxNS4yNSA3Ljc1TTE3LjUgMTBMMTUuMjUgMTIuMjVNNy43NSA0Ljc1TDEwIDIuNU0xMCAyLjVMMTIuMjUgNC43NU0xMCAyLjVWMTcuNU0xMCAxNy41TDEyLjI1IDE1LjI1TTEwIDE3LjVMNy43NSAxNS4yNSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=);
+}
 #st-button-dashboard {
   width: 20px;
   height: 20px;
