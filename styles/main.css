@@ -19,6 +19,7 @@
   position: absolute;
   resize: both;
   overflow: auto;
+  box-sizing: border-box;
   width: 160px;
   height: 160px;
   padding: 10px;
@@ -72,4 +73,7 @@
   border: none !important;
   outline: none;
   color: black;
+}
+#st-textarea::placeholder {
+  color: rgba(33, 37, 41, 0.6);
 }

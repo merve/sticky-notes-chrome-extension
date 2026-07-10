@@ -22,14 +22,9 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["scripts/content.js", "scripts/dashboard.js"],
+      "all_frames": true,
+      "js": ["scripts/i18n.js", "scripts/card.js", "scripts/content.js"],
       "css": ["styles/main.css"]
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": ["note.html", "note.js"],
-      "matches": ["<all_urls>"]
     }
   ],
   "host_permissions": ["<all_urls>"]

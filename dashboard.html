@@ -14,43 +14,43 @@
   <header class="st-header">
     <div class="st-header-container">
       <img src="assets/images/icon128.png" width="40" height="40" alt="Sticky Notes Logo" class="st-logo" />
-      <h1 class="st-header-title">Sticky Notes</h1>
+      <h1 class="st-header-title" data-i18n="dashboardTitle">Sticky Notes</h1>
+      <select id="st-language" class="st-language-select"></select>
     </div>
   </header>
   <main>
     <div class="st-search">
       <div class="st-input-container">
-        <label for="st-note">Hangi Notu Arıyorsunuz?</label>
+        <label for="st-note" data-i18n="searchLabel">What note are you looking for?</label>
         <div class="st-input-group">
-          <input class="st-input-with-icon" type="text" id="st-note" placeholder="Seçilen yazı, not" />
+          <input class="st-input-with-icon" type="text" id="st-note" data-i18n-placeholder="searchPlaceholder" placeholder="Selected text, note" />
           <img src="assets/icons/search.svg" width="20" height="20" alt="icon" class="st-search-icon" />
         </div>
       </div>
       <div class="st-input-container" style="max-width: 330px">
-        <label for="site">Site</label>
+        <label for="site" data-i18n="siteLabel">Site</label>
         <select name="site" id="site">
         </select>
       </div>
-      <button class="st-search-button" id="st-search-button">ARA</button>
+      <button class="st-search-button" id="st-search-button" data-i18n="searchButton">SEARCH</button>
     </div>
     <div class="st-table">
       <div class="st-table-header">
         <div></div>
         <div class="st-table-item">
-          <img src="assets/icons/link.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" />Site
+          <img src="assets/icons/link.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" /><span data-i18n="columnSite">Site</span>
         </div>
         <div class="st-table-item">
-          <img src="assets/icons/selected.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" />Seçilen
-          yazı
+          <img src="assets/icons/selected.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" /><span data-i18n="columnSelectedText">Selected text</span>
         </div>
         <div class="st-table-item">
-          <img src="assets/icons/notes.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" />Notum
+          <img src="assets/icons/notes.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" /><span data-i18n="columnNote">My note</span>
         </div>
         <div class="st-table-item">
-          <img src="assets/icons/calendar.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" />Tarih
+          <img src="assets/icons/calendar.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" /><span data-i18n="columnDate">Date</span>
         </div>
         <div class="st-table-item" style="justify-content: center">
-          <img src="assets/icons/action.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" />Aksiyon
+          <img src="assets/icons/action.svg" width="16" height="16" alt="Sticky Notes icon" class="st-icon" /><span data-i18n="columnActions">Action</span>
         </div>
       </div>
       <div id="notes"></div>
@@ -60,13 +60,14 @@
   <div id="st-note-detail" class="st-popup-container" style="display: none;">
     <div class="st-popup-content">
       <span class="st-close-button" id="st-close-popup">&times;</span>
-      <h2 id="st-popup-title">Not İçeriği</h2>
-      <p><strong>Site:</strong> <span id="st-popup-site"></span></p>
-      <p><strong>Seçilen metin:</strong> <span id="st-popup-content"></span></p>
-      <p><strong>Not:</strong> <span id="st-popup-note"></span></p>
+      <h2 id="st-popup-title" data-i18n="popupTitle">Note Content</h2>
+      <p><strong data-i18n="popupSite">Site:</strong> <span id="st-popup-site"></span></p>
+      <p><strong data-i18n="popupSelectedText">Selected text:</strong> <span id="st-popup-content"></span></p>
+      <p><strong data-i18n="popupNote">Note:</strong> <span id="st-popup-note"></span></p>
     </div>
   </div>
 
+  <script src="scripts/i18n.js"></script>
   <script src="scripts/dashboard.js"></script>
 </body>
 
