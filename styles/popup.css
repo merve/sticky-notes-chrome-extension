@@ -5,33 +5,51 @@
   padding: 0;
 }
 body {
-  background-color: #fcfcfc;
-  color: #212529;
+  background-color: var(--color-white);
+  color: var(--color-text);
 }
 .popup-container {
-  padding: 20px;
-  width: 440px;
-  line-height: 1.5;
+  width: 360px;
 }
-
-button {
-  margin-top: 16px;
-  padding: 8px 16px;
-  color: var(--color-white);
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  background-color: var(--color-primary);
-  font-weight: 600;
+.popup-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eef0f2;
 }
-button:hover {
-  background-color: var(--color-primary-dark);
-  transition: all 0.4s;
+.popup-logo {
+  border-radius: 6px;
+}
+.popup-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+.popup-content {
+  padding: 18px 20px 4px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4b5157;
 }
 .popup-button {
   display: flex;
   justify-content: center;
+  padding: 18px 20px 20px;
 }
-.popup-content {
-  text-align: center;
+
+button {
+  width: 100%;
+  padding: 11px 16px;
+  color: var(--color-white);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+button:hover {
+  background-color: var(--color-primary-dark);
 }
