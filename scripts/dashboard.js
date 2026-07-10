@@ -173,7 +173,19 @@
   function populateLanguageSelect() {
     const select = document.getElementById("st-language");
     if (!select) return;
-    const displayNames = { en: "English", tr: "Türkçe" };
+    const displayNames = {
+      ar: "العربية",
+      zh: "中文",
+      en: "English",
+      fr: "Français",
+      de: "Deutsch",
+      id: "Bahasa Indonesia",
+      ja: "日本語",
+      pt: "Português",
+      ru: "Русский",
+      es: "Español",
+      tr: "Türkçe",
+    };
     select.innerHTML = StickyNotesI18n.supportedLanguages
       .map((lang) => `<option value="${lang}">${escapeHtml(displayNames[lang] || lang)}</option>`)
       .join("");

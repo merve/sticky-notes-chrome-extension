@@ -1,6 +1,6 @@
 # Sticky Notes (Website Stickies)
 
-A Chrome extension that lets you highlight text on any website and leave a sticky note right next to it. Notes are saved automatically, stay attached to the page you wrote them on, and are all searchable from a dashboard. Available in English and Turkish, with more languages easy to add.
+A Chrome extension that lets you highlight text on any website and leave a sticky note right next to it. Notes are saved automatically, stay attached to the page you wrote them on, and are all searchable from a dashboard. Supports 11 languages, including English, Turkish, Spanish, German, Japanese, French, Portuguese, Russian, Mandarin, Indonesian, and Arabic.
 
 ![A sticky note attached to a highlighted paragraph](docs/screenshots/note-on-page.png)
 
@@ -54,12 +54,6 @@ From the dashboard you can:
 - **Collapse/expand** each site's group of notes.
 - **Open** the original page, **preview** a note, or **delete** it — deletions sync live across every open dashboard tab, no reload needed.
 - **Switch language** from the dropdown in the top-right corner of the header.
-
-## Language
-
-The dashboard, note editor, and right-click menu follow your browser's language automatically the first time you use the extension. To change it permanently, open the dashboard and pick a language from the selector in the header — the choice is saved and applies everywhere (including the right-click menu).
-
-Currently supported: English, Türkçe. Adding another language means adding one more entry to `scripts/i18n.js`.
 
 ## Project structure
 
