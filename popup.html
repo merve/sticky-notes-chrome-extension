@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 
 <head>
   <title>Website Stickies</title>
@@ -11,15 +11,15 @@
 
 <body>
   <div class="popup-container">
-    <p class="popup-content">
-      Website Stickies ile web sitelerinde istediğiniz metni seçerek hızlıca
-      notlar ekleyebilirsiniz. Sadece sağ tıklayın, 'Not Ekle' seçeneğine
-      tıklayarak seçtiğiniz metin yanında bir yapışkan not oluşturun.
+    <p class="popup-content" data-i18n="popupIntro">
+      With Website Stickies, you can quickly add notes by selecting text on any website. Just
+      right-click and choose 'Add Note' to create a sticky note next to your selection.
     </p>
     <div class="popup-button">
-      <button id="popup-open-notes">Tüm notları görüntüle</button>
+      <button id="popup-open-notes" data-i18n="popupOpenNotes">View all notes</button>
     </div>
   </div>
+  <script src="scripts/i18n.js"></script>
   <script src="scripts/popup.js"></script>
 </body>
 

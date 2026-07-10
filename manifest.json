@@ -1,6 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Website Stickies",
+  "description": "Select text on any website and leave a sticky note right next to it.",
   "version": "1.0",
   "permissions": ["contextMenus", "storage", "activeTab", "tabs", "scripting"],
   "icons": {
@@ -22,14 +23,9 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["scripts/content.js", "scripts/dashboard.js"],
+      "all_frames": true,
+      "js": ["scripts/i18n.js", "scripts/card.js", "scripts/content.js"],
       "css": ["styles/main.css"]
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": ["note.html", "note.js"],
-      "matches": ["<all_urls>"]
     }
   ],
   "host_permissions": ["<all_urls>"]
