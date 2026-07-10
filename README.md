@@ -74,3 +74,12 @@ assets/
 ## Privacy
 
 All notes are stored locally in your browser (`chrome.storage.local`). Nothing is sent to any server.
+
+## Contributing
+
+Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to get set up and
+what to keep in mind, and please follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+
+## License
+
+[MIT](LICENSE)

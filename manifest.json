@@ -1,6 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Website Stickies",
+  "description": "Select text on any website and leave a sticky note right next to it.",
   "version": "1.0",
   "permissions": ["contextMenus", "storage", "activeTab", "tabs", "scripting"],
   "icons": {
