@@ -73,7 +73,7 @@ assets/
 
 ## Privacy
 
-All notes are stored locally in your browser (`chrome.storage.local`). Nothing is sent to any server.
+All notes are stored locally in your browser (`chrome.storage.local`). Nothing is sent to any server. See [PRIVACY.md](PRIVACY.md) for the full policy.
 
 ## Contributing
 
