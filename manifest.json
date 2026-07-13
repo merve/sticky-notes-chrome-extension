@@ -3,7 +3,7 @@
   "name": "Website Stickies",
   "description": "Select text on any website and leave a sticky note right next to it.",
   "version": "1.0",
-  "permissions": ["contextMenus", "storage", "activeTab", "tabs", "scripting"],
+  "permissions": ["contextMenus", "storage", "activeTab", "scripting"],
   "icons": {
     "16": "assets/images/icon16.png",
     "48": "assets/images/icon48.png",
@@ -14,6 +14,7 @@
   },
   "action": {
     "default_popup": "popup.html",
+    "default_title": "Website Stickies",
     "default_icon": {
       "16": "assets/images/icon16.png",
       "48": "assets/images/icon48.png",
